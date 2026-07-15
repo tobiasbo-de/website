@@ -1,0 +1,14 @@
+<svg width="400" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg">
+<title>TB monogram logo</title>
+<desc>The initials TB in white with a tilted orange shadow.</desc>
+<defs>
+<g id="tb">
+<path d="M40 40 H190 V70 H130 V220 H100 V70 H40 Z"/>
+<path d="M215 40 H310 Q360 40 360 82 Q360 118 330 128 Q366 138 366 178 Q366 220 312 220 H215 Z M245 70 V122 H305 Q330 122 330 96 Q330 70 305 70 Z M245 150 V190 H307 Q334 190 334 170 Q334 150 307 150 Z"/>
+</g>
+</defs>
+<g transform="translate(150,50)">
+<use href="#tb" fill="#e9532b" transform="skewX(-24) translate(60,0)"/>
+<use href="#tb" fill="#ffffff"/>
+</g>
+</svg>

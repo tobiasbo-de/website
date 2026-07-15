@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0b;
+  --surface: #121214;
+  --foreground: #eae8e3;
+  --muted: #ababab;
+  --border: #424245;
+  --accent: #e9532b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-spline-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.65;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--background);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+@property --pill-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes pill-spin {
+  to {
+    --pill-angle: 360deg;
+  }
+}
+
+.tech-pill {
+  position: relative;
+  isolation: isolate;
+  transition:
+    box-shadow 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.tech-pill::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--pill-angle),
+    transparent 0deg,
+    #c2431f 55deg,
+    var(--accent) 110deg,
+    #ff7a45 165deg,
+    transparent 220deg,
+    transparent 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.tech-pill:hover::before {
+  animation: pill-spin 2.4s linear infinite;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
