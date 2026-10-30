@@ -31,9 +31,8 @@ export const techStack: string[] = [
   "React",
   "Next.js",
   "TypeScript",
-  "Tailwind CSS",
+  "TailwindCSS",
   "Storybook",
-  "Claude Code",
 ];
 
 export type TimelineEntry = {
